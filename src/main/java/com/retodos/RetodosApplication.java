@@ -2,6 +2,7 @@ package com.retodos;
 
 import com.retodos.model.User;
 import com.retodos.repository.crud.CleaningproductsCrudRepository;
+import com.retodos.repository.crud.OrderCrudRepository;
 import com.retodos.repository.crud.UserCrudRepository;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +18,9 @@ public class RetodosApplication implements CommandLineRunner {
         @Autowired
         private UserCrudRepository userRepo;
         @Autowired
-        private CleaningproductsCrudRepository proRepo;        
+        private CleaningproductsCrudRepository proRepo;
+        @Autowired
+        private OrderCrudRepository orderRepo;        
 
 	public static void main(String[] args) {
 		SpringApplication.run(RetodosApplication.class, args);
@@ -26,6 +29,7 @@ public class RetodosApplication implements CommandLineRunner {
         public void run(String... args)throws Exception{
             userRepo.deleteAll();
             proRepo.deleteAll();
+            orderRepo.deleteAll();
             //System.out.println("Pendiente");
             //System.out.println("Usuario :" + userRepo.findTopByOrderByIdDesc().get());
         }

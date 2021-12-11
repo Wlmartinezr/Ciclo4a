@@ -1,9 +1,11 @@
 
 package com.retodos.controller;
 
+import com.retodos.model.Order;
 import com.retodos.model.User;
 import com.retodos.service.UserService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +34,10 @@ public class UserController {
         public List<User> getAll(){
             return servicio.getAll();
         }
+        @GetMapping("/{id}")
+        public Optional<User> getUser(@PathVariable("id") int id) {
+        return servicio.getUser(id) ;
+    } 
         @GetMapping("/emailexist/{email}")
         public boolean existeEmail(@PathVariable("email") String email) {
         return servicio.existeEmail(email);

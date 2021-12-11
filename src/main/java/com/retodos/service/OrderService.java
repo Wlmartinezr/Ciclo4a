@@ -59,8 +59,8 @@ public class OrderService {
        }).orElse(false);
        return aBoolean;
     }
-    //public List<Order> findByZone(String zona){
-      //  return orderRepository.findByZone(zona);
+    public List<Order> findByZone(String zona){
+        return orderRepository.findByZone(zona);
     
-                  
+    }              
 }
