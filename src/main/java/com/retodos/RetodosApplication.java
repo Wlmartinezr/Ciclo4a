@@ -22,12 +22,12 @@ public class RetodosApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(RetodosApplication.class, args);
 	}
-
-
         @Override
         public void run(String... args)throws Exception{
             userRepo.deleteAll();
             proRepo.deleteAll();
+            //System.out.println("Pendiente");
+            //System.out.println("Usuario :" + userRepo.findTopByOrderByIdDesc().get());
         }
         
 }
