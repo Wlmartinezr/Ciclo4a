@@ -6,6 +6,7 @@
 package com.retodos.repository.crud;
 
 import com.retodos.model.Cleaningproducts;
+import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -13,5 +14,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author Martinez Huertas
  */
 public interface CleaningproductsCrudRepository extends MongoRepository<Cleaningproducts, String>{
-    
+  public List<Cleaningproducts> findByPriceLessThanEqual(double precio);  
 }

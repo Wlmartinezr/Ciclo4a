@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Martinez Huertas
@@ -31,34 +30,41 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/cleaningproduct")
 @CrossOrigin("*")
 public class CleaningproductsController {
-        @Autowired
-        private CleaningproductsService servicio;
-        
-        @GetMapping("/all")
-        public List<Cleaningproducts> getAll(){
-            return servicio.getAll();
-        }        
 
-        @GetMapping("/{reference}")
-        public Optional<Cleaningproducts> getClothe(@PathVariable("reference")String reference){
-            return servicio.getClothe(reference);
-        }
+    @Autowired
+    private CleaningproductsService servicio;
 
-        @PostMapping("/new")
-        @ResponseStatus(HttpStatus.CREATED)
-        public Cleaningproducts create(@RequestBody Cleaningproducts gadget){
-            return servicio.create(gadget);
-        }
-        @PutMapping("/update")
-        @ResponseStatus(HttpStatus.CREATED)
-        public Cleaningproducts update(@RequestBody Cleaningproducts gadget) {
+    @GetMapping("/all")
+    public List<Cleaningproducts> getAll() {
+        return servicio.getAll();
+    }
+
+    @GetMapping("/{reference}")
+    public Optional<Cleaningproducts> getClothe(@PathVariable("reference") String reference) {
+        return servicio.getClothe(reference);
+    }
+
+    @PostMapping("/new")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cleaningproducts create(@RequestBody Cleaningproducts gadget) {
+        return servicio.create(gadget);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cleaningproducts update(@RequestBody Cleaningproducts gadget) {
         return servicio.update(gadget);
-        }
-        @DeleteMapping("/{reference}")
-        @ResponseStatus(HttpStatus.NO_CONTENT)
-        public boolean delete (@PathVariable("reference")String reference){
-            return servicio.delete(reference);
-        }
-                
-    
+    }
+
+    @DeleteMapping("/{reference}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("reference") String reference) {
+        return servicio.delete(reference);
+    }
+
+    @GetMapping("/price/{price}")
+    public List<Cleaningproducts> productByPrice(@PathVariable("price") double precio) {
+        return servicio.productByPrice(precio);
+    }
+
 }

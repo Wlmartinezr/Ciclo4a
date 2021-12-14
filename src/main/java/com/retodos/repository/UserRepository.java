@@ -43,6 +43,8 @@ public class UserRepository {
         public Optional<User> authenticateUser(String email, String password) {
             return crudInterface.findByEmailAndPassword(email, password);
         }
-
+        public List<User> birthtDayList(String monthBirthtDay) {
+        return crudInterface.findByMonthBirthtDay(monthBirthtDay);
+    }
 
 }

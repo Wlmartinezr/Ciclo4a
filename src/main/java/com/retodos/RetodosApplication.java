@@ -1,15 +1,20 @@
 package com.retodos;
 
 import com.retodos.model.User;
+import com.retodos.repository.OrderRepository;
+import com.retodos.repository.UserRepository;
 import com.retodos.repository.crud.CleaningproductsCrudRepository;
 import com.retodos.repository.crud.OrderCrudRepository;
 import com.retodos.repository.crud.UserCrudRepository;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,13 +25,24 @@ public class RetodosApplication implements CommandLineRunner {
         @Autowired
         private CleaningproductsCrudRepository proRepo;
         @Autowired
-        private OrderCrudRepository orderRepo;        
+        private OrderCrudRepository orderRepo; 
+        
+        @Autowired
+        private UserRepository userRepository;
+    
+        @Autowired
+        private OrderRepository orderRepository;
+    
+        @Autowired
+        private MongoTemplate mongoTemplate;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RetodosApplication.class, args);
 	}
         @Override
         public void run(String... args)throws Exception{
+            SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             userRepo.deleteAll();
             proRepo.deleteAll();
             orderRepo.deleteAll();

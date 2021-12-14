@@ -38,6 +38,9 @@ public class CleaningproductsRepository {
     }
     public void delete(Cleaningproducts clothe){
         repository.delete(clothe);
+    }
+    public List<Cleaningproducts> productByPrice(double precio){
+        return repository.findByPriceLessThanEqual(precio);
     }    
     
 }
