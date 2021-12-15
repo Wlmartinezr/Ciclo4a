@@ -74,7 +74,7 @@ public class OrderService {
     }
     
     //Reto 4: Ordenes de un asesor x Estado
-    public List<Order> ordersSalesManByState(String state, Integer id) {
+    public List<Order> ordersSalesManByState(String state, int id) {
         return orderRepository.ordersSalesManByState(state, id);
     }
 }

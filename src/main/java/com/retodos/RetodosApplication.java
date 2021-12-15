@@ -27,14 +27,6 @@ public class RetodosApplication implements CommandLineRunner {
         @Autowired
         private OrderCrudRepository orderRepo; 
         
-        @Autowired
-        private UserRepository userRepository;
-    
-        @Autowired
-        private OrderRepository orderRepository;
-    
-        @Autowired
-        private MongoTemplate mongoTemplate;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RetodosApplication.class, args);

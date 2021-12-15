@@ -81,8 +81,8 @@ public class OrderController {
 
     //Reto 4: Ordenes de un asesor x Estado
     @GetMapping("/state/{state}/{id}")
-    public List<Order> ordersSalesManByState(@PathVariable("state") String date, @PathVariable("id") int id) {
-        return orderService.ordersSalesManByState(date, id);
+    public List<Order> ordersSalesManByState(@PathVariable("state") String state, @PathVariable("id") int id) {
+        return orderService.ordersSalesManByState(state, id);
     }    
 
 }

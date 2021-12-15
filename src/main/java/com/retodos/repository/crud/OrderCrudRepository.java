@@ -6,6 +6,7 @@
 package com.retodos.repository.crud;
 
 import com.retodos.model.Order;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -22,6 +23,9 @@ public interface OrderCrudRepository extends MongoRepository<Order,Integer> {
     
     @Query("{'status': ?0}")
     List<Order> findByStatus(final String status);
+    
+    @Query("{'date': ?0}")
+    List<Order> findByDate(final String date);
     
     Optional<Order> findTopByOrderByIdDesc();
     
