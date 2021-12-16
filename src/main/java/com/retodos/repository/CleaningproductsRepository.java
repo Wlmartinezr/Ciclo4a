@@ -41,6 +41,9 @@ public class CleaningproductsRepository {
     }
     public List<Cleaningproducts> productByPrice(double precio){
         return repository.findByPriceLessThanEqual(precio);
+    }
+    public List<Cleaningproducts> findByDescriptionLike(String description) {
+        return repository.findByDescriptionLike(description);
     }    
     
 }

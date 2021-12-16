@@ -91,5 +91,9 @@ public class CleaningproductsService {
     public List<Cleaningproducts> productByPrice(double price) {
     return prodrepositorio.productByPrice(price);
     }
-    
+
+    //Reto 5
+    public List<Cleaningproducts> findByDescriptionLike(String description) {
+        return prodrepositorio.findByDescriptionLike(description);
+    }
 }

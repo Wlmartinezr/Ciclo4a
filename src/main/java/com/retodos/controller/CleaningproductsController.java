@@ -66,5 +66,9 @@ public class CleaningproductsController {
     public List<Cleaningproducts> productByPrice(@PathVariable("price") double precio) {
         return servicio.productByPrice(precio);
     }
+    @GetMapping("/description/{description}")
+    public List<Cleaningproducts> findByDescriptionLike(@PathVariable("description") String description) {
+        return servicio.findByDescriptionLike(description);
+    }    
 
 }
